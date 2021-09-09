@@ -28,15 +28,33 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func saveButton(_ sender: Any) {
-        guard let value = textFieldValue.text else {
-            return
-        }
+    @IBAction func save4000StepsToday(_ sender: Any) {
+        let value = "4000"
+        let today = Date()
         
-        HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: datePicker.date) { (error) in
+        HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
             print(error)
         }
         
     }
     
+    @IBAction func save8000StepsToday(_ sender: Any) {
+        let value = "8000"
+        let today = Date()
+        
+        HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
+            print(error)
+        }
+        
+    }
+    
+    @IBAction func saveManyStepsToday(_ sender: Any) {
+        let value = "10000"
+        let today = Date()
+        
+        HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
+            print(error)
+        }
+        
+    }
 }
