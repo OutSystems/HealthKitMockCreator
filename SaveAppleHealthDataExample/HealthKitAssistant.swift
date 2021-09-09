@@ -26,11 +26,16 @@ open class HealthKitSetupAssistant {
                 return
         }
         
+        guard let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate) else {
+            completion(false, HealthkitSetupError.dataTypeNotAvailable)
+            return
+        }
+        
         let healthKitTypesToWrite: Set<HKSampleType> = [stepsCount,
-                                                        HKObjectType.workoutType()]
+                                                        HKObjectType.workoutType(), heartRateType]
         
         let healthKitTypesToRead: Set<HKObjectType> = [stepsCount,
-                                                       HKObjectType.workoutType()]
+                                                       HKObjectType.workoutType(), heartRateType]
         
         HKHealthStore().requestAuthorization(toShare: healthKitTypesToWrite,
                                              read: healthKitTypesToRead) { (success, error) in
