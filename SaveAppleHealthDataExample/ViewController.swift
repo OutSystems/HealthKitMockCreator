@@ -29,32 +29,140 @@ class ViewController: UIViewController {
     }
     
     @IBAction func save4000StepsToday(_ sender: Any) {
-        let value = String(Int.random(in: 1...4000))
+        let value = Int.random(in: 1...4000)
         let today = Date()
         
-        HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
+        HealthKitSetupAssistant.saveSteps(stepsCountValue: value, date: today) { (error) in
             print(error)
         }
         
     }
     
     @IBAction func save8000StepsToday(_ sender: Any) {
-        let value = String(Int.random(in: 4000...8000))
+        let value = Int.random(in: 4000...8000)
         let today = Date()
         
-        HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
+        HealthKitSetupAssistant.saveSteps(stepsCountValue: value, date: today) { (error) in
             print(error)
         }
         
     }
     
     @IBAction func saveManyStepsToday(_ sender: Any) {
-        let value = String(Int.random(in: 9000...20000))
+        let value = Int.random(in: 9000...20000)
         let today = Date()
         
-        HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
+        HealthKitSetupAssistant.saveSteps(stepsCountValue: value, date: today) { (error) in
             print(error)
         }
         
     }
+    
+    
+    @IBAction func addHeartBeatsToLast24Hours(_ sender: Any) {
+        var date = Calendar.current.date(byAdding: .hour, value: -24, to: Date())!
+        let endDate = Date() // last date
+
+        // Formatter for printing the date, adjust it according to your needs:
+        let fmt = DateFormatter()
+        fmt.dateFormat = "dd/MM/yyyy hh:mm"
+
+        while date <= endDate {
+            let value = Int.random(in: 50...80)
+            
+            HealthKitSetupAssistant.saveHeartRate(heartRateValue: value, date: date) { (error) in
+                print(error)
+            }
+            print(fmt.string(from: date))
+            date = Calendar.current.date(byAdding: .minute, value: 30, to: date)!
+        }
+        
+    }
+    
+    
+    @IBAction func addHeartBeatsToLastWeek(_ sender: Any) {
+        var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        let endDate = Date() // last date
+
+        // Formatter for printing the date, adjust it according to your needs:
+        let fmt = DateFormatter()
+        fmt.dateFormat = "dd/MM/yyyy hh:mm"
+
+        while date <= endDate {
+            let value = Int.random(in: 50...80)
+            
+            HealthKitSetupAssistant.saveHeartRate(heartRateValue: value, date: date) { (error) in
+                print(error)
+            }
+            print(fmt.string(from: date))
+            date = Calendar.current.date(byAdding: .minute, value: 30, to: date)!
+        }
+        
+    }
+    
+    
+    @IBAction func addHeartBeatsToLastMonth(_ sender: Any) {
+        var date = Calendar.current.date(byAdding: .month, value: -1, to: Date())!
+        let endDate = Date() // last date
+
+        // Formatter for printing the date, adjust it according to your needs:
+        let fmt = DateFormatter()
+        fmt.dateFormat = "dd/MM/yyyy hh:mm"
+
+        while date <= endDate {
+            let value = Int.random(in: 50...80)
+            
+            HealthKitSetupAssistant.saveHeartRate(heartRateValue: value, date: date) { (error) in
+                print(error)
+            }
+            print(fmt.string(from: date))
+            date = Calendar.current.date(byAdding: .minute, value: 30, to: date)!
+        }
+        
+    }
+    
+    
+    @IBAction func addStepsToLastMonth(_ sender: Any) {
+        var date = Calendar.current.date(byAdding: .month, value: -1, to: Date())!
+        let endDate = Date() // last date
+
+        // Formatter for printing the date, adjust it according to your needs:
+        let fmt = DateFormatter()
+        fmt.dateFormat = "dd/MM/yyyy hh:mm"
+
+        while date <= endDate {
+            let value = Int.random(in: 1200...12000)
+            
+            HealthKitSetupAssistant.saveSteps(stepsCountValue: value, date: date) { (error) in
+                print(error)
+            }
+            print(fmt.string(from: date))
+            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+        }
+        
+    }
+    
+    
+    @IBAction func addStepsToLastWeek(_ sender: Any) {
+        var date = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
+        let endDate = Date() // last date
+
+        // Formatter for printing the date, adjust it according to your needs:
+        let fmt = DateFormatter()
+        fmt.dateFormat = "dd/MM/yyyy hh:mm"
+
+        while date <= endDate {
+            let value = Int.random(in: 1200...12000)
+            
+            HealthKitSetupAssistant.saveSteps(stepsCountValue: value, date: date) { (error) in
+                print(error)
+            }
+            print(fmt.string(from: date))
+            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+        }
+        
+    }
+    
+    
+    
 }
