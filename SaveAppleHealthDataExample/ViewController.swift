@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func save4000StepsToday(_ sender: Any) {
-        let value = "4000"
+        let value = String(Int.random(in: 1...4000))
         let today = Date()
         
         HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func save8000StepsToday(_ sender: Any) {
-        let value = "8000"
+        let value = String(Int.random(in: 4000...8000))
         let today = Date()
         
         HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveManyStepsToday(_ sender: Any) {
-        let value = "10000"
+        let value = String(Int.random(in: 9000...20000))
         let today = Date()
         
         HealthKitSetupAssistant.saveSteps(stepsCountValue: Int(value)!, date: today) { (error) in
