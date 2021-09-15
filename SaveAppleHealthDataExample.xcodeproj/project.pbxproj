@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F5644DE52396FD2700448A59 /* SaveAppleHealthDataExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaveAppleHealthDataExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5644DE52396FD2700448A59 /* HealthKitMockCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthKitMockCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5644DE82396FD2700448A59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5644DEA2396FD2700448A59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F5644DEC2396FD2700448A59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		F5644DE62396FD2700448A59 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5644DE52396FD2700448A59 /* SaveAppleHealthDataExample.app */,
+				F5644DE52396FD2700448A59 /* HealthKitMockCreator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,9 +87,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F5644DE42396FD2700448A59 /* SaveAppleHealthDataExample */ = {
+		F5644DE42396FD2700448A59 /* HealthKitMockCreator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5644DF92396FD2800448A59 /* Build configuration list for PBXNativeTarget "SaveAppleHealthDataExample" */;
+			buildConfigurationList = F5644DF92396FD2800448A59 /* Build configuration list for PBXNativeTarget "HealthKitMockCreator" */;
 			buildPhases = (
 				F5644DE12396FD2700448A59 /* Sources */,
 				F5644DE22396FD2700448A59 /* Frameworks */,
@@ -99,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = SaveAppleHealthDataExample;
+			name = HealthKitMockCreator;
 			productName = SaveAppleHealthDataExample;
-			productReference = F5644DE52396FD2700448A59 /* SaveAppleHealthDataExample.app */;
+			productReference = F5644DE52396FD2700448A59 /* HealthKitMockCreator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F5644DE42396FD2700448A59 /* SaveAppleHealthDataExample */,
+				F5644DE42396FD2700448A59 /* HealthKitMockCreator */,
 			);
 		};
 /* End PBXProject section */
@@ -310,7 +310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mediumproject.SaveAppleHealthDataExample;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.felipe.healthkitmock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,7 +329,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mediumproject.SaveAppleHealthDataExample;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.felipe.healthkitmock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,7 +348,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5644DF92396FD2800448A59 /* Build configuration list for PBXNativeTarget "SaveAppleHealthDataExample" */ = {
+		F5644DF92396FD2800448A59 /* Build configuration list for PBXNativeTarget "HealthKitMockCreator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5644DFA2396FD2800448A59 /* Debug */,
