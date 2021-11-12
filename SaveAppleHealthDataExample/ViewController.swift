@@ -58,6 +58,36 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func saveVO2Now(_ sender: Any) {
+        let value = Int.random(in: 30...60)
+        let today = Date()
+        
+        HealthKitSetupAssistant.saveVO2(vo2Value: Double(value), date: today) { (error) in
+            print(error)
+        }
+        
+    }
+    
+    @IBAction func saveHearthNow(_ sender: Any) {
+        let value = Int.random(in: 100...190)
+        let today = Date()
+        
+        HealthKitSetupAssistant.saveHeartRate(heartRateValue: value, date: today) { (error) in
+            print(error)
+        }
+        
+    }
+    
+    
+    @IBAction func saveMeasurementsNow(_ sender: Any) {
+        let value = Int.random(in: 100...300)
+        let today = Date()
+        
+        HealthKitSetupAssistant.saveBodyMass(bodyMassValue: Double(value), date: today) { (error) in
+            print(error)
+        }
+        
+    }
     
     @IBAction func addHeartBeatsToLast24Hours(_ sender: Any) {
         var date = Calendar.current.date(byAdding: .hour, value: -24, to: Date())!
@@ -102,7 +132,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func addHeartBeatsToLastMonth(_ sender: Any) {
-        var date = Calendar.current.date(byAdding: .month, value: -1, to: Date())!
+        var date = Calendar.current.date(byAdding: .month, value: -72, to: Date())!
         let endDate = Date() // last date
 
         // Formatter for printing the date, adjust it according to your needs:
@@ -123,7 +153,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func addStepsToLastMonth(_ sender: Any) {
-        var date = Calendar.current.date(byAdding: .month, value: -1, to: Date())!
+        var date = Calendar.current.date(byAdding: .month, value: -72, to: Date())!
         let endDate = Date() // last date
 
         // Formatter for printing the date, adjust it according to your needs:

@@ -31,11 +31,21 @@ open class HealthKitSetupAssistant {
             return
         }
         
+        guard let vo2Type = HKQuantityType.quantityType(forIdentifier: .vo2Max) else {
+            completion(false, HealthkitSetupError.dataTypeNotAvailable)
+            return
+        }
+        
+        guard let bodyMassType = HKQuantityType.quantityType(forIdentifier: .bodyMass) else {
+            completion(false, HealthkitSetupError.dataTypeNotAvailable)
+            return
+        }
+        
         let healthKitTypesToWrite: Set<HKSampleType> = [stepsCount,
-                                                        HKObjectType.workoutType(), heartRateType]
+                                                        HKObjectType.workoutType(), heartRateType, vo2Type, bodyMassType]
         
         let healthKitTypesToRead: Set<HKObjectType> = [stepsCount,
-                                                       HKObjectType.workoutType(), heartRateType]
+                                                       HKObjectType.workoutType(), heartRateType, vo2Type, bodyMassType]
         
         HKHealthStore().requestAuthorization(toShare: healthKitTypesToWrite,
                                              read: healthKitTypesToRead) { (success, error) in
@@ -279,6 +289,36 @@ open class HealthKitSetupAssistant {
         }
         
     }
+    
+    public class func saveVO2(vo2Value: Double,
+                                   date: Date,
+                                   completion: @escaping (Error?) -> Swift.Void) {
+        
+        guard let vo2Type = HKQuantityType.quantityType(forIdentifier: .vo2Max) else {
+            fatalError("BMI Type is no longer available in HealthKit")
+        }
+        
+        let vo2Quantity = HKQuantity(unit: HKUnit(from: "ml/kg*min"),
+                                          doubleValue: vo2Value)
+        
+        let vo2Sample = HKQuantitySample(type: vo2Type,
+                                              quantity: vo2Quantity,
+                                              start: date,
+                                              end: date)
+        
+        HKHealthStore().save(vo2Sample) { (success, error) in
+            
+            if let error = error {
+                completion(error)
+                print("Error Saving VO2 Sample: \(error.localizedDescription)")
+            } else {
+                completion(nil)
+                print("Successfully saved VO2 Sample")
+            }
+        }
+        
+    }
+    
     
     public class func saveFatPercentage(fatPercentageValue: Double,
                               date: Date,
